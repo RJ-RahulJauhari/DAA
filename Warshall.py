@@ -13,6 +13,12 @@ class graph:
                 else:
                     print("%7d\t"%(reach[i][j]))
 
+    def sol(self,dist):
+        for i in range(self.v):
+            for j in range(self.v):
+                print(dist[i][j],end=" ")
+            print(" ")
+
     def transitiveClosure(self,graph):
         reach = [i[:] for i in graph]
 
@@ -20,7 +26,7 @@ class graph:
             for i in range(self.v):
                 for j in range(self.v):
                     reach[i][j] = reach[i][j] or (reach[i][k] and reach[k][j])
-        self.printSolution(reach)
+        self.sol(reach)
 
 g= graph(4)
 graph = [[1, 1, 0, 1],
